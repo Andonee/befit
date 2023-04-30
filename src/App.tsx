@@ -17,4 +17,5 @@ export default App;
 
 const AppWrapper = styled("div")`
   display: flex;
+  width: 100vw;
 `;
