@@ -6,6 +6,7 @@ import {
   Outlet,
 } from "react-router-dom";
 import { Navigation } from "./Navigation";
+import { Measurments } from "../features";
 
 const routes = createBrowserRouter(
   createRoutesFromElements(
@@ -19,8 +20,8 @@ const routes = createBrowserRouter(
       }
       errorElement={<div>Not found</div>}
     >
-      <Route path="/" element={<div>Something</div>} />
-      <Route path="measurments" element={<div>Contact</div>} />
+      <Route path="/" element={<div>Main</div>} />
+      <Route path="measurments" element={<Measurments />} />
       <Route path="progress" element={<div>Dashboard</div>} />
       <Route path="training" element={<div>Dashboard</div>} />
     </Route>

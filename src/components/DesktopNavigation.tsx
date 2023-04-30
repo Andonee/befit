@@ -17,14 +17,19 @@ export const menuItems = [
   },
 ];
 
+type TabType = "/Measurments" | "/Progress" | "/Training";
+
 const DesktopNavigation = () => {
-  const [activeTab, setActiveTab] =
-    useState<typeof menuItems[number]["url"]>("Measurments");
+  const [activeTab, setActiveTab] = useState<TabType>("/Measurments");
   const navigate = useNavigate();
+
+  console.log("activeTab", activeTab);
 
   useEffect(() => {
     const path = window.location.pathname;
-    menuItems.forEach((item) => item.url === path && setActiveTab(item.url));
+    menuItems.forEach(
+      (item) => item.url === path && setActiveTab(item.url as TabType)
+    );
   }, []);
 
   const onTabClick = (
@@ -32,7 +37,7 @@ const DesktopNavigation = () => {
     value: string | number | boolean
   ) => {
     if (typeof value !== "string") return;
-    setActiveTab(value);
+    setActiveTab(value as TabType);
     navigate(value);
   };
 
@@ -44,8 +49,12 @@ const DesktopNavigation = () => {
         </LogoWrapper>
         <MenuWrapper>
           <Tabs value={activeTab} onChange={onTabClick}>
-            {menuItems.map((item) => (
-              <StyledTab value={item.url} label={item.label} />
+            {menuItems.map((item, idx) => (
+              <StyledTab
+                value={item.url}
+                label={item.label}
+                key={`${item.label}_${idx}`}
+              />
             ))}
           </Tabs>
         </MenuWrapper>
