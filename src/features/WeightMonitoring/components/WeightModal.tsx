@@ -5,14 +5,14 @@ import { FormModal } from "../../../components";
 import type { Rows } from "../../../components";
 import { TextField } from "../../../components/ui";
 
-type MeasurmentsModalProps = {
+type WeightModalProps = {
   isOpen: boolean;
   onClose: () => void;
   onSubmit: (values: Rows[0]) => void;
   values: Rows[0];
 };
 
-export const MeasurmentsModal = (props: MeasurmentsModalProps) => {
+export const WeightModal = (props: WeightModalProps) => {
   const { isOpen, onClose, onSubmit, values } = props;
   const [state, setState] = useState<Rows[0]>(values);
 
@@ -52,25 +52,26 @@ export const MeasurmentsModal = (props: MeasurmentsModalProps) => {
     >
       <TextFieldWrapper>
         <TextField
-          value={state.part || ""}
+          value={state.date || ""}
           onChange={onChangeHandler}
-          name="part"
+          name="date"
           size="small"
-          label="Body part"
+          label="Date"
+          type={"date"}
         />
         <TextField
-          value={state.base || ""}
+          value={state.weight || ""}
           onChange={onChangeHandler}
-          name="base"
+          name="weight"
           size="small"
-          label="Base measurment"
+          label="Weight"
         />
         <TextField
-          value={state.current || ""}
+          value={state.goal || ""}
           onChange={onChangeHandler}
-          name="current"
+          name="goal"
           size="small"
-          label="Current measurment"
+          label="Goal"
         />
       </TextFieldWrapper>
     </FormModal>

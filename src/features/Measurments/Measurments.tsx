@@ -5,16 +5,16 @@ import { CustomTable, Layout } from "../../components";
 import type { Headers, Rows } from "../../components";
 import { MeasurmentsModal } from "./components";
 
+const headers: Headers = {
+  part: "Body part",
+  base: "Base measurment",
+  current: "Current measurment",
+};
+
 export const Measurments = () => {
   const [items, setItems] = useState<Rows>([]);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState<Rows[0]>();
-
-  const headers: Headers = {
-    part: "Body part",
-    base: "Base measurment",
-    current: "Current measurment",
-  };
 
   const onRemove = (id: string) => {
     setItems((prevState) => prevState.filter((row) => row.id !== id));
@@ -40,7 +40,6 @@ export const Measurments = () => {
     const idx = items.findIndex((item) => item.id === id);
     const selectedItem = items[idx];
 
-    console.log("selectedItem", selectedItem, id);
     setSelectedItem(selectedItem);
     setIsOpen(true);
   };

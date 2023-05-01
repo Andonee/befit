@@ -6,7 +6,7 @@ import {
   Outlet,
 } from "react-router-dom";
 import { Navigation } from "./Navigation";
-import { Measurments } from "../features";
+import { Measurments, WeightMonitoring } from "../features";
 
 const routes = createBrowserRouter(
   createRoutesFromElements(
@@ -22,7 +22,7 @@ const routes = createBrowserRouter(
     >
       <Route path="/" element={<div>Main</div>} />
       <Route path="measurments" element={<Measurments />} />
-      <Route path="progress" element={<div>Dashboard</div>} />
+      <Route path="progress" element={<WeightMonitoring />} />
       <Route path="training" element={<div>Dashboard</div>} />
     </Route>
   )

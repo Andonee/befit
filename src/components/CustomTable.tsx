@@ -22,10 +22,11 @@ type CustomTableProps = {
   onEdit?: (id: string) => void;
   onRemove?: (id: string) => void;
   onAdd?: () => void;
+  maxHeight?: string | number;
 };
 
 export const CustomTable = (props: CustomTableProps) => {
-  const { actions, onEdit, onRemove, rows, headers, onAdd } = props;
+  const { actions, onEdit, onRemove, rows, headers, onAdd, maxHeight } = props;
 
   const onEditClickHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
     const id = e.currentTarget.id;
@@ -37,12 +38,10 @@ export const CustomTable = (props: CustomTableProps) => {
     onRemove && onRemove(id);
   };
 
-  console.log("rows", rows);
-
   return (
     <Wrapper>
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <TableContainer component={Paper} sx={{ maxHeight: maxHeight }}>
+        <Table sx={{ minWidth: 650 }} stickyHeader>
           <HeaderWrapper>
             <TableRow>
               {Object.values(headers).map((header, idx) => {
@@ -109,6 +108,11 @@ const Wrapper = styled("div")`
   flex-direction: column;
   gap: 25px;
   width: 100%;
+  overflow: hidden;
+
+  & table {
+    min-width: 0;
+  }
 `;
 
 const HeaderWrapper = styled(TableHead)`
