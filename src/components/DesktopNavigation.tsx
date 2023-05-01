@@ -23,8 +23,6 @@ const DesktopNavigation = () => {
   const [activeTab, setActiveTab] = useState<TabType>("/Measurments");
   const navigate = useNavigate();
 
-  console.log("activeTab", activeTab);
-
   useEffect(() => {
     const path = window.location.pathname;
     menuItems.forEach(
