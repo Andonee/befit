@@ -6,7 +6,7 @@ import {
   Outlet,
 } from "react-router-dom";
 import { Navigation } from "./Navigation";
-import { Measurments, WeightMonitoring } from "../features";
+import { Measurments, WeightMonitoring, MealsMonitoring } from "../features";
 
 const routes = createBrowserRouter(
   createRoutesFromElements(
@@ -22,8 +22,8 @@ const routes = createBrowserRouter(
     >
       <Route path="/" element={<div>Main</div>} />
       <Route path="measurments" element={<Measurments />} />
-      <Route path="progress" element={<WeightMonitoring />} />
-      <Route path="training" element={<div>Dashboard</div>} />
+      <Route path="weight" element={<WeightMonitoring />} />
+      <Route path="meals" element={<MealsMonitoring />} />
     </Route>
   )
 );
