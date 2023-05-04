@@ -8,12 +8,12 @@ export const menuItems = [
     label: "Measurments",
   },
   {
-    url: "/Progress",
-    label: "Progress",
+    url: "/weight",
+    label: "Weight monitoring",
   },
   {
-    url: "/Training",
-    label: "Training plan",
+    url: "/meals",
+    label: "Meals monitoring",
   },
 ];
 
